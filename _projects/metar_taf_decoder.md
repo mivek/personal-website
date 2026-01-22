@@ -21,7 +21,7 @@ URL: [https://metar-taf-decoder.com](https://metar-taf-decoder.com)
 ## History
 
 | Date          | Event                                                                                  |
-|---------------|----------------------------------------------------------------------------------------|
+| ------------- | -------------------------------------------------------------------------------------- |
 | May 2021      | First release of the web application                                                   |
 | October 2020  | First release of the `python-metar-taf-decoder`. A Python version of the `MetarParser` |
 | February 2019 | The project `MetarParser` is released on Maven Central repository                      |
