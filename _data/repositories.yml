@@ -1,14 +1,12 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - mivek
 
 repo_description_lines_max: 2
 
 github_repos:
-  - alshedivat/al-folio
-  - jekyll/jekyll
-  - twbs/bootstrap
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - mathjax/MathJax
-  - jpswalsh/academicons
+  - mivek/MetarParser
+  - mivek/python-metar-taf-parser
+  - mivek/ansible-role-inadyn
+  - mivek/ansible-role-pgbackrest
+  - mivek/fail2ban_exporter
+  - mivek/poeditor_exporter
