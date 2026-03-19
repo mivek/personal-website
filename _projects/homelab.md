@@ -2,7 +2,7 @@
 layout: page
 title: self hosted k3s
 description: Self hosted k3s cluster
-img: assets/img/homelab.png
+img: assets/img/Homelab-without-services.drawio.png
 importance: 1
 category: Self Hosting
 related_publications: false
@@ -12,7 +12,7 @@ related_publications: false
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/homelab.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/Homelab-without-services.drawio.png" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
