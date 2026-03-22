@@ -2,7 +2,7 @@
 layout: page
 title: self hosted k3s
 description: Self hosted k3s cluster
-img: assets/img/Homelab-without-services.drawio.png
+img: assets/img/Homelab-without-services.webp
 importance: 1
 category: Self Hosting
 related_publications: false
@@ -12,7 +12,7 @@ related_publications: false
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/Homelab-without-services.drawio.png" title="example image" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/Homelab-without-services.webp" title="example image" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
 
@@ -36,7 +36,7 @@ The cluster consists of **multiple nodes with mixed architectures**, providing r
   - Used as Kubernetes control plane and worker nodes
   - Each node runs a **CrowdSec firewall bouncer** for node-level protection
 
-- **1 × Intel NUC (Mini PC)**
+- **1 × HP ProDesk 405 G4 (Mini PC)**
 
   - Used as Kubernetes control plane
   - Higher-performance node for workloads requiring more CPU/RAM
@@ -79,6 +79,10 @@ The cluster consists of **multiple nodes with mixed architectures**, providing r
 
 - **[WireGuard](https://www.wireguard.com/)** provides secure remote access to internal services
 - Allows safe administration and private app access without exposing them publicly
+
+### Kube-VIP
+
+- **[Kube-VIP](https://kube-vip.io/)** provides a load balancer for the control plane.
 
 ---
 
@@ -139,15 +143,24 @@ This provides visibility into:
 
 The infrastructure uses **multiple storage backends**, depending on workload needs:
 
-- **Btrfs-based raid-1 storage**
+- **2 SATA-SSD**
 
+  - Available on two different hosts
   - Used for Kubernetes persistent volumes
-  - Provides snapshots and data integrity
-  - Mounted as NFS shares for cluster access
+  - Provided via Longhorn
 
-- **External raid-1 HDD**
+- **2 HDD**
+
+  - Used for Immich data
+  - Managed with Longhorn for replication and snapshots
+
+- **External HDD**
 
   - Used for media storage
+
+- **External HDD**
+
+  - Backup of the media storage
 
 ### Backups
 
@@ -156,10 +169,6 @@ The infrastructure uses **multiple storage backends**, depending on workload nee
   - Automated backups of databases
 
   - Enables disaster recovery and off-site redundancy
-
-- **Restic**
-
-  - Used for efficient, encrypted backups to an external disk
 
 ---
 
@@ -202,10 +211,15 @@ Inside the cluster, several shared services are deployed:
 
 ## History
 
-The homelab was started in 2020 by just hosted service on a single Raspberry Pi and then evolved into a docker setup on multiple node before moving to k3s in 2024.
+The homelab started in 2020 by self-hosting Nextcloud on a single Raspberry Pi and then evolved through a multi-node Docker deployment before migrating to k3s in 2024.
 
 | Date          | Event                                                                                                            |
 | ------------- | ---------------------------------------------------------------------------------------------------------------- |
+| March 2026    | Replace the NFS storage by Longhorn.                                                                             |
+|               | Remove BTRFS RAID 1 array.                                                                                       |
+| February 2026 | Add HP ProDesk 405 G4 Mini.                                                                                      |
+|               | Remove the media-server RAID 1 array and migrate to a primary/backup layout.                                     |
+| January 2026  | Add Eaton UPS.                                                                                                    |
 | October 2025  | Added a 5th Node (Intel NUC) to the cluster to improve control plane HA and workload capacity.                   |
 | May 2024      | Add a RaspberryPi 5B+ (8GB) to the setup. Create the kubernetes cluster. Migrate apps from Docker to Kubernetes. |
 | June 2023     | Add a RaspberryPi 4B (4GB) to host internal services.                                                            |
