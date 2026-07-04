@@ -22,6 +22,7 @@ URL: [https://metar-taf-decoder.com](https://metar-taf-decoder.com)
 
 | Date          | Event                                                                                  |
 | ------------- | -------------------------------------------------------------------------------------- |
+| June 2026     | Refurbish of the web application. Map opens showing the station of the origin message. | 
 | May 2021      | First release of the web application                                                   |
 | October 2020  | First release of the `python-metar-taf-decoder`. A Python version of the `MetarParser` |
 | February 2019 | The project `MetarParser` is released on Maven Central repository                      |
